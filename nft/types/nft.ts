@@ -1,13 +1,12 @@
 
 export type Trait = "Health" | "speed" | "attack"
 
-export type nftAttributes = {
-    [x: string]: any
+export type nftAttributes ={
     trait_type : Trait,
     value : string
 }
 
-export type NftMeta = {
+export type NftMeta ={
     description : string,
     image : string,
     name : string,
