@@ -1,9 +1,11 @@
-import { NftMeta, nftAttributes } from "@/types/nft";
+/* eslint-disable @next/next/no-img-element */
+
+import { NftAttribute, NftMeta } from "@/types/nft";
 import { FunctionComponent } from "react";
 
-interface NftItemProps {
+type NftItemProps = {
   item: NftMeta;
-}
+};
 
 const NftItem: FunctionComponent<NftItemProps> = ({ item }) => {
   return (
@@ -11,7 +13,9 @@ const NftItem: FunctionComponent<NftItemProps> = ({ item }) => {
       <div className="flex-shrink-0">
         <img
           className={`h-full w-full object-cover`}
-          src={item.image}
+          src={
+            item.image
+          }
           alt="New NFT"
         />
       </div>
@@ -19,9 +23,11 @@ const NftItem: FunctionComponent<NftItemProps> = ({ item }) => {
         <div className="flex-1">
           <p className="text-sm font-medium text-indigo-600">Creatures NFT</p>
           <div className="block mt-2">
-            <p className="text-xl font-semibold text-gray-900">{item.name}</p>
+            <p className="text-xl font-semibold text-gray-900">
+              {item.name}
+            </p>
             <p className="mt-3 mb-3 text-base text-gray-500">
-              {item.description}
+            {item.description}
             </p>
           </div>
         </div>
@@ -33,20 +39,21 @@ const NftItem: FunctionComponent<NftItemProps> = ({ item }) => {
               </dt>
               <dd className="order-1 text-xl font-extrabold text-indigo-600">
                 <div className="flex justify-center items-center">
-                  <img className="h-6" src="/images/small-eth.webp" />
+                  100
+                   <img className="h-6" src="/images/small-eth.webp" alt="eth symbol"/> 
                   ETH
                 </div>
               </dd>
             </div>
-            {item.attributes.map((attr : nftAttributes) => (
-              <div key={attr.trait_type}className="flex flex-col px-4 pt-4">
-                <dt className="order-2 text-sm font-medium text-gray-500">
-                  {attr.trait_type}
-                </dt>
-                <dd className="order-1 text-xl font-extrabold text-indigo-600">
-                  {attr.value}
-                </dd>
-              </div>
+            {item.attributes.map((attr : NftAttribute)=>(
+                <div key={attr.trait_type}className="flex flex-col px-4 pt-4">
+              <dt className="order-2 text-sm font-medium text-gray-500">
+                {attr.trait_type}
+              </dt>
+              <dd className="order-1 text-xl font-extrabold text-indigo-600">
+                {attr.value}
+              </dd>
+            </div>
             ))}
           </dl>
         </div>

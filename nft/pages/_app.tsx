@@ -8,7 +8,5 @@ export default function App({ Component, pageProps }: AppProps) {
   <Web3Provider>
   <Component {...pageProps} /> 
   </Web3Provider>
-  
-
   </>)
 }

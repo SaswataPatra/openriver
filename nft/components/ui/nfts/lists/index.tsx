@@ -1,6 +1,8 @@
 import { FunctionComponent } from "react";
-import NftItem from "../items";
+
 import { NftMeta } from "@/types/nft";
+import NftItem from "../items";
+
 
 // interface NftImageProps {
 //   item: {
@@ -23,9 +25,10 @@ const NftList: FunctionComponent<NftImageProps> = ({ item }) => {
     <>
       {item.map((nft) => (
         <div key={nft.image} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-          <NftItem />
+          <NftItem item={nft}/>
         </div>
       ))}
+      
     </>
   );
 };
